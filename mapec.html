@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Ecuador</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+    
+    <style>
+        /* Asegura que el mapa ocupe toda la pantalla */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; 
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <!-- Mapbox JavaScript -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <script>
+        // Tu token de Mapbox
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWdlbnRlZ2ciLCJhIjoiY2x5bjNmeXlqMDIxdjJqcHY4a2Y4d3E1YSJ9.Ql27NoS7XzaN9VF3BGNtxg';
+
+        // Crear un nuevo mapa
+        var map = new mapboxgl.Map({
+            container: 'map', // El ID del contenedor en el HTML
+            style: 'mapbox://styles/mapbox/streets-v11', // Estilo del mapa
+            center: [-78.183406, -1.831239], // Coordenadas iniciales [longitud, latitud]
+            zoom: 6 // Nivel de zoom
+        });
+
+        // Añadir un marcador al mapa
+        new mapboxgl.Marker()
+            .setLngLat([-78.183406, -1.831239])
+            .setPopup(new mapboxgl.Popup().setHTML('<h3>Ecuador</h3>'))
+            .addTo(map);
+    </script>
+</body>
+</html>
